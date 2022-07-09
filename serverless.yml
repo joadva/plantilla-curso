@@ -32,3 +32,43 @@ functions:
           method: get
           path: /hello
           cors: true
+
+  getUserFunction:
+    handler: ./src/lambdas/getUser.getUser
+    events:
+      - http:
+          method: GET
+          path: /get-user-from-database
+          cors: true
+
+  createUserFunction:
+    handler: ./src/lambdas/createUser.createUser
+    events:
+      - http:
+          method: POST
+          path: /create-user
+          cors: true
+
+  updateUSerFunction:
+    handler: ./src/lambdas/updateUser.updateUser
+    events:
+      - http:
+          method: PUT
+          path: /updated-user/{id}
+          cors: true
+
+  deleteUserFunction:
+    handler: ./src/lambdas/deleteUser.deleteUser
+    events:
+      - http:
+          method: DELETE
+          path: /destroy-useer/{id}
+          cors: true
+
+  restoreUserFunction:
+    handler: ./src/lambdas/restoreUser.restoreUser
+    events:
+      - http:
+          method: POST
+          path: /restore-user/{id}
+          cors: true
